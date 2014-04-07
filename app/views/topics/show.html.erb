@@ -1,2 +1,30 @@
-<h1>Topics#show</h1>
-<p>Find me in app/views/topics/show.html.erb</p>
+
+<h2>
+	<b> Title: </b> <%= @topic.name %>
+</h2> 
+<h3>
+	<b> Created by: </b> <%= @topic.user.email %>
+</h3>
+
+
+
+<% @topic.replies.each do |reply| %>
+  Reply
+  <br>
+  Title: <%= reply.title %>
+  <br>
+  <%= reply.user.email %> says:
+  <br>
+  <%= reply.body %>
+  <br>
+  <br>
+
+<% end %>
+
+<%= link_to "Reply to this post" , new_topic_reply_path(@topic)  %>
+
+<%= link_to "Back to list of topics" , topics_path  %>
+
+
+
+

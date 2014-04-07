@@ -1,19 +1,22 @@
 Myapp::Application.routes.draw do
-  get "users/new"
-  get "users/edit"
-  get "users/show"
-  get "users/index"
-  get "topics/index"
-  get "topics/show"
-  get "topics/new"
-  get "topics/edit"
-  get "index/show"
-  get "index/new"
-  get "index/edit"
-  get "sessions/new"
-  get "replies/new"
-  get "replies/index"
-  get "home/index"
+
+
+
+  resources :users
+
+  resources :topics do
+    resources :replies
+  end
+
+
+  root to: "home#index"
+
+
+
+
+
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
