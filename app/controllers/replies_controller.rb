@@ -6,10 +6,10 @@ class RepliesController < ApplicationController
   end
 
   def create
-  	@topic = topic.new(reply_params)
+  	@reply = Reply.new(reply_params)
   	@reply.topic_id = params[:topic_id]
   	@reply.user = current_user	
-  	if @topic.save
+  	if @reply.save
   		flash[:notice] = "Your post was added successfully"
   		redirect_to topic_path(@reply.topic)
   	else
@@ -25,7 +25,8 @@ class RepliesController < ApplicationController
 
 
   def reply_params
-  	params.require(:reply).permit(:body, :title)	
+  	params.require(:reply).permit(:body, :title)
+  	
   end
 
 end

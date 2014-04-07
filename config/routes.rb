@@ -9,7 +9,7 @@ Myapp::Application.routes.draw do
   end
 
   get  '/log-in' => 'sessions#new' , as: :log_in
-  post  '/log-in' => 'sessions#new'
+  post  '/log-in' => 'sessions#create'
   delete 'log-out' => 'sessions#destroy' , as: :log_out
 
 

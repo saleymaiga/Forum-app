@@ -3,7 +3,7 @@
 
 <% @topics.each do |topic| %>
   Title: <%= link_to topic.name , topic_path(topic)  %><br>
-  created by: <%= topic.user.email %><br><br>
+
 
 <% end %>
 

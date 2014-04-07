@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
   def create
   	@user = User.where(email: params[:email]).first
   	if @user && @user.password == params[:password]
-  		flash[:notice] = "Welcome #{@user.fname}"
   		session[:user_id] = @user.id
+  		flash[:notice] = "Welcome #{@user.fname}"
   		redirect_to user_path(@user)
   	else
   		flash[:alert] = "There was a problem signing you in"
